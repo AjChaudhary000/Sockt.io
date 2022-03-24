@@ -61,7 +61,7 @@ const ChatDetails = (props) => {
   }, [])
   return (
     <View style={{ flex: 1, justifyContent: 'center' }}>
-      <FlatList style={{ marginBottom: 100 }}
+      <FlatList style={{ marginBottom: 100 }} inverted contentContainerStyle={{ flexDirection: 'column-reverse' }}
         data={roomData} renderItem={(item) => (
           <View>
             {(id == item.item.userId) ?
@@ -70,12 +70,12 @@ const ChatDetails = (props) => {
                 height: 40, borderRadius: 10, backgroundColor: "#839bd4", justifyContent: 'center', padding: 10, borderBottomLeftRadius: 5, borderTopLeftRadius: 120
               }}>
                 <Text>{item.item.message}</Text>
-              </View> : <View style={{
+              </View> : <TouchableOpacity onLongPress={() => { console.log("delete"); }} style={{
                 marginTop: 10, minWidth: '15%', maxWidth: '70%', alignSelf: 'flex-end', alignItems: 'center',
                 height: 40, borderRadius: 10, backgroundColor: "#1469c4", justifyContent: 'center', padding: 10, borderBottomRightRadius: 100
               }}>
                 <Text>{item.item.message}</Text>
-              </View>}
+              </TouchableOpacity>}
           </View>
         )}
       />
